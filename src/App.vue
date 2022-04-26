@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <span>{{count}}</span>
+    <Child :count="count" @change="change"></Child>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+
+import Child from "@/components/Child";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Child
+  },
+  data() {
+    return {
+      count: 0,
+    }
+  },
+  methods: {
+    change(value) {
+      this.count = value
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
